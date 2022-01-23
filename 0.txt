@@ -1,0 +1,43 @@
+        Switching to Go took courage. 5 Years deeply invested into
+        
+        node.js as primary language.
+        
+        ?Why node first instead of Go, Python, or Java?
+        
+        In 2015, the number of jobs for a Node, Python, and Java were
+        nearly everywhere for new and seasoned programmers.
+        Libraries, Documentation, YouTube videos, meetups were
+        populated by these famous languages. As a new programmer,
+        a job was top priority, learn the most in demand frameworks
+        and you got a job.
+        
+        ?Why Go lang now?
+        
+        // NODE WAS MY FIRST LANGUAGE //
+        I learned what to do and not to do. The flexibility of node.js
+        gave my mind the freedom to express code and figureout
+        all the angles with it's REPL. Talking with many programmers
+        coming from compiled langauges, there still trying to catchup
+        with javascripts one liner expressions and executions behavior.
+        Writng self modifying code is just a few lines of code.
+        Never second guessed node.js capability.
+        
+        Since this was my first programming langauge,
+        this languages mental spot in my brain has a few bad habits with it.
+        Thinking about any program with node.js is difficult for me to
+        do without falling into mental loops. To fix these mental traps
+        a new programming language will take it's a primary position.
+        Go lang is next choice in line. GoLang is in top 10
+        programming language. Go Lang jobs are everywhere now.
+        
+        // REPL IS MOBILE INSTANT GRATIFICATION EQUIVALENT FOR PROGRAMMERS //
+        The quick response of the
+        REPL never left me hanging. REPL was a playground. REPL kept me
+        grounded with node's IO behavior. Without the REPL, I don't think
+        I would have been able to tolerate learning programming in solitude.
+        Because of the REPLs instantaneous results, I to became instantaneously
+        dependent. The REPL was mind altering. Just like mobile devices addiction.
+        Instant gratification first sped me up, over time, my information retrieval
+        stalled. Calculating things in my head no longer functioned. My brain extended
+        itsself to the REPL. How does one debug an application if there mind can't formulate
+        an IO pair.

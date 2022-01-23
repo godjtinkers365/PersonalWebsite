@@ -1,0 +1,6 @@
+	Go lang is awesome. This github page organizes go packages.
+	https://github.com/avelino/awesome-go
+
+	This is all the reasons why Go lang is awesome.
+	Quality. Now I don't need to try a million abandoned
+	modules.
