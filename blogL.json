@@ -1,0 +1,40 @@
+{
+    "blogL":[
+        {
+            "title":       "Why I Switched to Go",
+            "date":        "Jan 15, 2022",
+            "description": "Discusses why author switched to Go programming language",
+            "article":     "/blogL/0.txt"
+        },
+        {
+            "title":       "Go Lang is awesome",
+            "date":        "Jan 15, 2022",
+            "description": "Go Community is Tight",
+            "article":      "/blogL/1.txt"
+        },
+        {
+            "title":       "Port Mario to Go lang",
+            "date":        "Jan 15, 2022",
+            "description": "Ported Mario to Go lang",
+            "article":     "/blogL/2.txt"
+        },
+        {
+            "title":       "Port Mario to Go lang",
+            "date":        "Jan 15, 2022",
+            "description": "Ported Mario to Go lang",
+            "article":     "/blogL/3.txt"
+        },
+        {
+            "title":       "Port Mario to Go lang",
+            "date":        "Jan 15, 2022",
+            "description": "Ported Mario to Go lang",
+            "article":     "/blogL/4.txt"
+        },
+        {
+            "title":       "Go Game Ports Summary",
+            "date":        "Jan 15, 2022",
+            "description": "Summarizes Porting Games over to Go lang",
+            "article":     "/blogL/5.txt"
+        }
+    ]
+}
