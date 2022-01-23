@@ -1,0 +1,22 @@
+const pages = [
+	"Summary",		// show best of each page here
+	"Blog",			// social media posts and computer journaling
+	"Research",		// program research posted here
+	"Projects",		// paid & personal projects
+	"Resume",		// a fancy UI decorated resume, make docx version downloadable
+	"Hireme",		// contact info, rates, locations willing to work
+	"Organizations"	// organizations I belong to
+];
+
+pages.forEach((name)=>{
+
+console.log(`
+type ${name} struct {
+    *app.Compo
+}
+func (${name[0].toLowerCase()} *${name}) Render() app.UI {
+    return app.Div().Body().Text("${name}")
+}
+`)
+
+});
