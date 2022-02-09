@@ -19,6 +19,7 @@ var PAGEL = [11]string{
 	"resume",       // a fancy UI decorated resume, make docx version downloadable
 	"githubresume", // a github generated resume
 	"wisdom",       // wisdom
+	// "servertower0",
 }
 
 type blog struct {
@@ -123,6 +124,7 @@ func main() {
 	app.Route("/resume", &Resume{})
 	app.Route("/githubresume", &GithubResume{})
 	app.Route("/wisdom", &Wisdom{})
+	app.Route("/servertower0", &ServerTower0{})
 	// app.RouteWithRegexp("^/bar.*", &bar) // bar component is associated with all paths that start with /bar.
 
 	// Once the routes set up, the next thing to do is to either launch the app
@@ -414,4 +416,216 @@ type Wisdom struct {
 
 func (o *Wisdom) Render() app.UI {
 	return app.Div().Body().Text("Wisdom")
+}
+
+type ServerTower0 struct {
+	app.Compo
+}
+
+func (s *ServerTower0) Render() app.UI {
+	return app.Div().Class("servertower").Body(
+		app.Raw(`<style>
+		body {
+			background:black;
+		  }
+		  .servertower {
+			display:inline-block;
+			width: 400px;
+			height: 800px;
+			border: 1px silver solid;
+		  }
+		  .top {
+			width: 100%;
+			height: 20px;
+		  /*   background: grey; */
+			background:#101252;
+		  }
+		  .bottom {
+			width: 100%;
+			height: 20px;
+		  /*   background: grey; */
+			background:#101252;
+		  }
+		  .neck{
+			width: 90%;
+			height: 20px;
+			background: black;
+			margin:auto;
+		  }
+		  .body{
+			width: 100%;
+			height:700px;
+		  /*   background: grey; */
+			background:#101252;
+		  }
+		  .container {
+			width: 90%;
+			height: 100%;
+			margin: auto;
+		  /*   border: 1px red solid; */
+			margin-top: 10%;
+		  }
+		  .server0{
+			width:100%;
+			height:65px;
+			background:black;
+			margin-bottom: 10px;
+		  }
+		  .serverlight {
+			position:relative;
+			width: 33%;
+			height: 85%;
+			background:#4dacff;;
+			left: 240px;
+			top: -32px;
+			border-radius: 10px;
+		  }
+		  .server1 {
+		  /*   background: grey; */
+			background:#3e3f57;
+		  /*   background:#101252; */
+			width: 100%;
+			height: 70px;
+		  /*   border: 1px purple solid; */
+		  /*   border: 1px #ff3bc1 solid; */
+			border: 3px #26ff00 solid;
+		  }
+		  .row0 {
+			display:block;
+			width: 100%;
+		  }
+		  .row1 {
+			position:relative;
+			display:block;
+			width: 100%;
+			top: 10px;
+		  }
+		  .lightgroup0 {
+			left: 10px;
+			position:relative;
+			display:inline-block;
+		  }
+		  .lightgroup1 {
+			left: 70px;
+			position:relative;
+			display:inline-block;
+		  }
+		  .lightgroup2 {
+			left: 130px;
+			position:relative;
+			display:inline-block;
+		  }
+		  .light {
+			width: 10px;
+			height: 10px;
+			background: aqua;
+			display:inline-block;
+			border-radius: 5px;
+		  }
+		  .serverlight1 {
+			background:aqua;
+			width: 150px;
+			height: 10px;
+			margin:auto;
+			margin-top:15px;
+			border-radius: 5px;
+			border: 8px black solid;
+		  }
+		  .vent{
+			background:black;
+			width: 100%;
+			height: 65px;
+		  }
+		  .rail{
+			background: grey;
+			width: 100%;
+			height: 1px;
+			margin-top: 5px;
+		  }
+		</style>`),
+		app.Div().Class("top"),
+		app.Div().Class("neck"),
+		app.Div().Class("body").Body(
+			app.Div().Class("container").Body(
+				&Server0{},
+				&Server0{},
+				&Server0{},
+				&Server0{},
+				&Server1{},
+				&Server1{},
+				&Server1{},
+				&Vent{},
+				&Vent{},
+			),
+		),
+		app.Div().Class("neck"),
+		app.Div().Class("bottom"),
+	)
+}
+
+type Server0 struct {
+	app.Compo
+}
+
+func (s *Server0) Render() app.UI {
+	return app.Div().Class("server0").Body(
+		app.Div().Body(
+			app.Div().Class("combrow combrow0").Body(
+				app.Div().Class("comb").Body(
+					app.Img().Src("https://wallpaperaccess.com/full/1429574.jpg"),
+				),
+			),
+			app.Div().Class("combrow combrow1").Body(
+				app.Div().Class("comb").Body(
+					app.Img().Src("https://wallpaperaccess.com/full/1429574.jpg"),
+				),
+			),
+		),
+		app.Div().Class("serverlight"),
+	)
+}
+
+type Server1 struct {
+	app.Compo
+}
+
+// var r3 = [3]string{"0", "1", "2"}
+var r5 = [5]string{"0", "1", "2", "3", "4"}
+
+func (s *Server1) Render() app.UI {
+	return app.Div().Class("server1").Body(
+		app.Div().Class("row0").Body(
+			app.Div().Class("serverlight1"),
+		),
+		app.Div().Class("row1").Body(
+			app.Div().Class("lightgroup0").Body(
+				// app.Div().Class("light") * 5
+				app.Range(r5).Slice(func(i int) app.UI {
+					return app.Div().Class("light")
+				}),
+			),
+			app.Div().Class("lightgroup1").Body(
+				// app.Div().Class("light") * 5
+				app.Range(r5).Slice(func(i int) app.UI {
+					return app.Div().Class("light")
+				}),
+			),
+			app.Div().Class("lightgroup2").Body(
+				// app.Div().Class("light") * 5
+				app.Range(r5).Slice(func(i int) app.UI {
+					return app.Div().Class("light")
+				}),
+			),
+		),
+	)
+}
+
+type Vent struct {
+	app.Compo
+}
+
+func (v *Vent) Render() app.UI {
+	return app.Div().Class("vent").Body(
+		app.Div().Class("rail"),
+	)
 }

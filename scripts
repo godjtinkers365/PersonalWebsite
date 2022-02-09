@@ -1,3 +1,13 @@
+GOARCH=wasm GOOS=js go build -o web/app.wasm
+
+
+
+
+
+
+
+
+
 const pages = [
 	"Summary",		// show best of each page here
 	"Blog",			// social media posts and computer journaling
