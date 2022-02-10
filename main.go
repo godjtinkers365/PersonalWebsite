@@ -590,7 +590,13 @@ type Server1 struct {
 }
 
 // var r3 = [3]string{"0", "1", "2"}
+var r2 = [2]string{"0", "1"}
+var r3 = [4]string{"0", "1", "2"}
+var r4 = [4]string{"0", "1", "2", "3"}
 var r5 = [5]string{"0", "1", "2", "3", "4"}
+var r7 = [7]string{"0", "1", "2", "3", "4", "5", "6"}
+var r12 = [12]string{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"}
+var r20 = [20]string{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19"}
 
 func (s *Server1) Render() app.UI {
 	return app.Div().Class("server1").Body(
@@ -627,5 +633,349 @@ type Vent struct {
 func (v *Vent) Render() app.UI {
 	return app.Div().Class("vent").Body(
 		app.Div().Class("rail"),
+	)
+}
+
+type ServerTower1 struct {
+	app.Compo
+}
+
+func (s *ServerTower1) Render() app.UI {
+	return app.Div().Body(
+		app.Raw(`
+			<style>
+			body{
+				background:black;
+			  }
+			  .servertower{
+				background: white;
+				width: 300px;
+				height: 700px;
+				border: 15px grey solid;
+				border-radius: 15px;
+				display:inline-block;
+			  }
+			  .notches{
+				position:relative;
+				top:10px;
+				height: 40px;
+				width: 90%;
+				margin: auto;
+			  }
+			  .notch0{
+				float: left;
+				height: 20px;
+				width: 15px;
+				background: grey;
+			  }
+			  .notch1{
+				float:right;
+				height: 20px;
+				width: 15px;
+				background: grey;
+			  }
+			  .nuts{
+				width: 30px;
+				display:inline-block;
+			  }
+			  .nut{
+				position:relative;
+				display:block;
+				background:white;
+				width:8px;
+				height:8px;
+				border-radius:5px;
+				top: 5px;
+			  }
+			  .nut2{
+				display:inline-block;
+				position:relative;
+				display:block;
+				background:white;
+				width:4px;
+				height:4px;
+				border-radius:5px;
+				top: 5px;
+			  }
+			  .server0{
+				width: 100%;
+				height: 40px;
+				background: black;
+			  }
+			  .lights{
+				position:relative;
+				display:inline-block;
+				background:rgb(44,44,44);
+				top: 5px;
+				margin-left: 7px;
+				margin-right:7px;
+				width: 100px;
+			  }
+			  .light{
+				display:inline-block;
+				width:10px;
+				height: 25px;
+				background:#4073e3;
+				margin-left: 3px;
+				margin-right:3px;
+			  }
+			  
+			  .block{
+				width: 100%%;
+				height: 200px;
+				background: black;
+			  }
+			  .cdrow {
+				height:20px;
+				margin: auto;
+			  }
+			  .cd{
+				display: inline-block;
+				height: 10px;
+				width: 50px;
+				background: grey;
+				margin-left: 17px;
+			  }
+			  .reddot{
+				float:right;
+				width: 10px;
+				height:10px;
+				background:darkred;
+				border-radius: 10px;
+			  }
+			  .rectsrow{
+				height:20px;
+				width:100%;
+			  }
+			  .rect{
+				display:inline-block;
+				width: 30px;
+				height: 10px;
+				background: grey;
+				border-radius: 5px;
+				margin:auto;
+				margin-left: 5px;
+				margin-right: 5px;
+			  }
+			  .vents{
+				height: 100px;
+				width: 74%;
+				border: 3px grey solid;
+				margin:auto;
+			  }
+			  .ventrow{
+				position:relative;
+				display:block;
+				left: 0px;
+				margin-bottom:-15px;
+			  }
+			  .vent{
+				position:relative;
+				display:inline-block;
+				border: 1px grey solid;
+				height:3px;
+				width: 35px;
+				margin: -2px;
+			  }
+			  .netserver{
+				width: 100%;
+				height: 45px;
+				background:black;
+				border: 1px orange solid;
+			  }
+			  .netserverlights{
+				display:inline-block;
+				width: 33%;
+				height:100%;
+			  /*   border: 1px red solid; */
+			  }
+			  .netserverlightdot{
+				display: inline-block;
+				width: 4px;
+				height: 4px;
+				background: lightgreen;
+				border-radius: 4px;
+			  }
+			  .etherports{
+				display: inline-block;
+				width: 64%;
+				height: 100%;
+				border:1px green solid;
+			  }
+			  .etherportcol{
+				display: inline-block;
+				width: 31%;
+			  }
+			  .etherportstrip{
+				display:block;
+				background:white;
+				width: 103%;
+				height:16px;
+			  }
+			  .etherportstripbtm{
+				position:relative;
+				display:block;
+				background:white;
+				width: 103%;
+				height:16px;
+				transform: rotateZ(180deg);
+			  }
+			  .etherport{
+				display:inline-block;
+				background:grey;
+				width:10px;
+				height:7px;
+				margin-right: -3px;
+				margin-left: 1.2px;
+			  /*   margin:auto; */
+			  }
+			  .etherportclip{
+				position:relative;
+				width: 4px;
+				height:4px;
+				border-radius: 3px;
+				background:grey;
+				bottom:3px;
+				left: 3px;
+				
+			  }
+			</style>
+		`),
+		app.Div().Class("notches").Body(
+			app.Div().Class("notch0"),
+			app.Div().Class("notch1"),
+		),
+		&Server2{},
+		&Disks{},
+		&Rects{},
+		&Vents{},
+		&NetServer{},
+		&NetServer{},
+		&NetServer{},
+		&NetServer{},
+		&Server2{},
+		&Server2{},
+		app.Div().Class("notches").Body(
+			app.Div().Class("notch0"),
+			app.Div().Class("notch1"),
+		),
+	)
+}
+
+type Server2 struct {
+	app.Compo
+}
+
+func (s *Server2) Render() app.UI {
+	return app.Div().Body(
+		app.Div().Class("nuts").Body(
+			app.Div().Class("nut"),
+			app.Div().Class("nut"),
+		),
+		app.Div().Class("lights"),
+		app.Div().Class("lights"),
+		app.Div().Class("nuts").Body(
+			app.Div().Class("nut"),
+			app.Div().Class("nut"),
+		),
+	)
+}
+
+type Disks struct {
+	app.Compo
+}
+
+func (d *Disks) Render() app.UI {
+	return app.Div().Class("block").Body(
+		app.Range(r2).Slice(func(i int) app.UI {
+			return app.Div().Class("cdrow").Body(
+				&CD{},
+				&CD{},
+				&CD{},
+				&CD{},
+			)
+		}),
+	)
+}
+
+type CD struct {
+	app.Compo
+}
+
+func (c *CD) Render() app.UI {
+	return app.Div().Class("reddot")
+}
+
+type Rects struct {
+	app.Compo
+}
+
+func (r *Rects) Render() app.UI {
+	return app.Div().Class("rectsrow").Body(
+		// <center>
+		app.Range(r5).Slice(func(i int) app.UI {
+			return &Rect{}
+		}),
+		// </center>
+	)
+}
+
+type Rect struct {
+	app.Compo
+}
+
+func (r *Rect) Render() app.UI {
+	return app.Div().Class("rect")
+}
+
+type Vents struct {
+	app.Compo
+}
+
+func (v *Vents) Render() app.UI {
+	return app.Range(r20).Slice(func(i int) app.UI {
+		return app.Div().Class("ventrow").Body(
+			app.Range(r7).Slice(func(i int) app.UI {
+				return app.Div().Class("vent")
+			}),
+		)
+	})
+}
+
+type NetServer struct {
+	app.Compo
+}
+
+func (n *NetServer) Render() app.UI {
+	return app.Div().Body(
+		app.Range(r2).Slice(func(i int) app.UI {
+			return app.Div().Class("netserverlights").Body(
+				app.Div().Class("netserverlightsrow").Body(
+					app.Range(r12).Slice(func(i int) app.UI {
+						return app.Div().Class("netserverlightdot")
+					}),
+				),
+			)
+		}),
+		app.Div().Class("etherports").Body(
+			app.Range(r3).Slice(func(i int) app.UI {
+				return app.Div().Class("etherportcol").Body(
+					app.Div().Class("etherportstrip").Body(
+						app.Range(r5).Slice(func(i int) app.UI {
+							return app.Div().Class("etherport").Body(
+								app.Div().Class("etherportclip"),
+							)
+						}),
+					),
+					app.Div().Class("etherportstripbtm").Body(
+						app.Range(r5).Slice(func(i int) app.UI {
+							return app.Div().Class("etherport").Body(
+								app.Div().Class("etherportclip"),
+							)
+						}),
+					),
+				)
+			}),
+		),
 	)
 }
